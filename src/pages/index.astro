@@ -144,6 +144,20 @@ import "../styles/tobii.min.css";
 			</div>
 		</section>
 	</article>
+	<!-- Progress-bar placeret i toppen af sitet -->
+	<div class="progress-bar h-4 fixed w-full bg-gradient-to-r from-orange-950 to-orange-500 left-0 origin-top-left top-0 right-0"></div>
+	<script>
+		// Funktion til at animere progress-baren ved scroll
+		window.addEventListener('scroll', function () {
+		  const progressBar = document.querySelector('.progress-bar');
+		  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+		  const scrollPercentage = scrollTop / scrollHeight;
+		  
+		  // Animering af bredden af progress-baren baseret på scroll-position
+		  progressBar.style.transform = `scaleX(${scrollPercentage})`;
+		});
+	  </script>
 </MainLayout>
 
 <script is:inline src="/tobii.min.js"></script>

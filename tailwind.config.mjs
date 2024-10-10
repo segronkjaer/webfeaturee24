@@ -7,7 +7,7 @@ export default {
         bowlby: ['"Bowlby One"', "sans-serif"],
       },
       cursor: {
-        handcursor: "url(/mus.png) 25 25, pointer",
+        handcursor: "url(/mus2.png) 25 25, pointer",
       },
     },
     plugins: [

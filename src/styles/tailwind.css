@@ -24,10 +24,9 @@
   }
 
   /* URL and coordinates, with mandatory keyword fallback */
-  body,
   image,
-  div,
+  body,
   section {
-    cursor: url("/public/mus.png") 25 25, pointer;
+    cursor: url("/public/mus2.png") 25 25, pointer;
   }
 }

@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         bowlby: ['"Bowlby One"', "sans-serif"],
       },
+      cursor: {
+        handcursor: "url(/mus.png) 25 25, pointer",
+      },
     },
     plugins: [
       require("@tailwindcss/typography"),

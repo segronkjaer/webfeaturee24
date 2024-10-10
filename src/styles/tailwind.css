@@ -22,4 +22,12 @@
   .tobii {
     background-color: black;
   }
+
+  /* URL and coordinates, with mandatory keyword fallback */
+  body,
+  image,
+  div,
+  section {
+    cursor: url("/public/mus.png") 25 25, pointer;
+  }
 }

@@ -135,13 +135,16 @@ import "../styles/tobii.min.css";
 			<div class="max-w-xl mx-auto my-32 prose">
 				<p>Karrieren begynder også så småt også at gå den rette vej: Pierre er begyndt at sælge fotokunst på nettet, og har udgivet sin første foto-bog med titlen “Lidt i fem,” som er en fotografisk odyssé om at slæbe en brandert hjem i de tidlige morgentimer. I forbindelse med udgivelsen af bogen, har han en udstilling på vej i det Kongelige Biblioteks fotoudstilling.</p>
 				<p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>			
-				<div>
-					<a href="lidtifem-pierre-falcke.jpg" class="lightbox" alt="">
-						<Image src={lidtifem} alt="" class="my-0 hover:cursor cursor-handcursor" />
-						<figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
-					</a>			
-				</div>
 			</div>
+			<section id="lydeffekter" class="max-w-xl mx-auto my-32 prose" x-data>
+				<audio x-ref="trykforatafspillelyd">
+				<source src="lyd.mp3" type="audio/mpeg">
+			</audio>
+				<a href="lidtifem-pierre-falcke.jpg" class="lightbox" alt="">
+				<Image src={lidtifem} alt="" type="image/webp" loading="lazy" class="my-0 hover:cursor cursor-handcursor"
+				@mouseenter="$refs.trykforatafspillelyd.play()"></Image>
+				<figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption></a>
+			</section>			
 		</section>
 	</article>
 	<!-- Progress-bar placeret i toppen af sitet -->

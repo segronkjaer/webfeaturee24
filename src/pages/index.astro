@@ -26,13 +26,14 @@ import "../styles/tobii.min.css";
 			</video> 
 		</section>
 		<section class="max-w-xl mx-auto mt-32 prose" id="manchet">
-			<p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
+			<p class="text-xl pb-8">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
 			<div>
 				<a href="pierre.jpeg" class="lightbox">
-					<Image src={pierre} alt="" class="hover:cursor cursor-handcursor my-0"/>
+					<Image src={pierre} alt="" class="hover:cursor cursor-handcursor my-0 fotoinview"/>
 					<figcaption>Pierre Falcke, selvportræt</figcaption>
 				</a>
 			</div>
+			<div class="pt-8">
 			<p class="text-2xl italic text-center bg-orange-900 p-8 text-white">
 				Pierre sælger 2 millioner fotos om året
 			</p>
@@ -42,19 +43,20 @@ import "../styles/tobii.min.css";
 			<p class="text-2xl italic text-center bg-orange-900 p-8 text-white">
 				Du ser hans fotos ca. 2 gange om dagen
 			</p>
+		</div>
 		</section>
 		<section class="max-w-4xl mx-auto my-32 prose border border-double border-orange-700 p-8" id="hvaderstockfotos">
 			<h2 class="font-bowlby text-orange-900 text-2xl">Hvad er stock-fotos?</h2>
-			<div class="grid grid-cols-3 gap-4">
-				<div>
+			<div class="grid grid-cols-3 gap-4" id="stagger">
+				<div class="staggeranimation">
 					<p>Stock-fotos er billeder, der kan købes fra et foto-website. De bruges af aviser, til markedsføring og som indhold på websites. En licens til at bruge et foto koster typisk mellem 10 og 100 kroner, alt afhængig af hvad de skal bruges til.</p>
 					<Image src={arbejde} alt="" class="hover:cursor cursor-handcursor" />
 				</div>
-				<div>
+				<div class="staggeranimation">
 					<p>Stock-fotos bliver ofte kritiseret for at være uden sjæl - det er de der billeder af en læge i hvid kittel med stetoskop om halsen på en meget hvid baggrund eller en meget glad dame fra virksomhedens salgs- eller supportafdeling.</p>
 					<Image src={apoteket} alt="" class="hover:cursor cursor-handcursor" />
 				</div> 
-				<div>
+				<div class="staggeranimation">
 					<p>Stock-fotos har eksisteret i mange år. Før branchen blev digital, tilbød stock-foto virksomhederne billedmapper, der kunne bestilles fra. Men stock-foto branchen var én af de tidlige til at blive fuldt digitaliseret.</p>
 					<Image src={godtarbejde} alt="" class="hover:cursor cursor-handcursor" />
 				</div>
@@ -121,13 +123,13 @@ import "../styles/tobii.min.css";
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
 				<div>
 					<a href="over-out-icm.jpeg" class="lightbox">
-						<Image src={overouticm} alt="" class="hover:cursor cursor-handcursor my-0" />
+						<Image src={overouticm} alt="" class="hover:cursor cursor-handcursor my-0 opacity-0 timelineanimation inviewreturn" id="timelineanimationimage"/>
 						<figcaption>Overeksponeret og ude af fokus</figcaption>
 					</a>	
 				</div>
 				<div>
 					<a href="tynd-film.jpg" class="lightbox">
-						<Image src={tyndfilm} alt="" class="hover:cursor cursor-handcursor my-0" />
+						<Image src={tyndfilm} alt="" class="hover:cursor cursor-handcursor my-0 timelineanimation inviewreturn" id="timelineanimationimage" />
 						<figcaption>Tynd film</figcaption>
 					</a>
 				</div>
@@ -162,6 +164,49 @@ import "../styles/tobii.min.css";
 		  // Animering af bredden af progress-baren baseret på scroll-position
 		  progressBar.style.transform = `scaleX(${scrollPercentage})`;
 		});
+		/* Import af Motion One biblioteket */
+		import { animate, stagger, inView, scroll, timeline } from "motion";
+		/* Entrance animation */
+		animate( "body", { opacity: [ 0, 1] }, { duration: 1 })
+		/* InView animation */
+		inView( ".fotoinview" , () =>{
+		animate( ".fotoinview", { x: [-2000, 0 ] }, { duration: 3 })
+		})
+		/* Stagger animation */
+		inView( "#stagger" , () =>{
+		animate(
+		".staggeranimation",
+		{ opacity: [0, 1] },
+		{ 
+			delay: stagger(1, { start: 1 })
+		}
+		)
+	})
+		/* Timeline animation */
+		inView( "#timelineanimationimage" , () =>{
+	const timelineanimation = [
+	[".timelineanimation", { opacity: 1 }, { duration: 5 }],
+	[".timelineanimation", { transform: "rotate(360deg)" }, { duration: 3 }],
+	[".timelineanimation", { transform: "scale(1.5)" }, { duration: 0.5 }],
+	[".timelineanimation", { transform: "scale(1)" }, { duration: 1 }],
+	[".timelineanimation", { opacity: 0.5 }, { duration: 5 }],
+	]
+	timeline( timelineanimation );
+	})
+	/* inView & return */
+	inView( ".inviewreturn", ({ target }) => {
+  	animate(
+      target,
+      { rotate: [180, 0] },
+      { delay: 1, duration: 2 },
+  	) 
+    return () => {
+      animate(
+        target,
+        { rotate: 180 }
+      )
+  	}
+	}) 
 	  </script>
 </MainLayout>
 

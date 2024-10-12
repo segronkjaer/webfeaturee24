@@ -77,20 +77,20 @@ import "../styles/tobii.min.css";
 				<p>Pierre tjente godt det følgende årti. Men stille og roligt begyndte billederne også at give ham kvalme. Han kunne ikke holde sit eget arbejde ud, og måtte finde et modsvar til alle de blankpolerede fotos. Noget han kunne lave med stolthed. Pierre bestluttede sig for at droppe stock-fotos, og vende tilbage til rødderne.</p>
 				<p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
 			</div>
-			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
+			<section class="scrollzoom overflow-clip grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
 				<div>
 					<a href="glitch.jpg" class="lightbox">
-						<Image src={glitch} alt="" class="hover:cursor cursor-handcursor my-0" />
+						<Image src={glitch} alt="" class="scrollzoomimg w-full hover:cursor cursor-handcursor my-0" />
 						<figcaption>Glitch kunst</figcaption>
 					</a>
 				</div>
 				<div>
 					<a href="lomo-smena-17.jpg" class="lightbox">
-						<Image src={smena} alt="" class="hover:cursor cursor-handcursor my-0" />
+						<Image src={smena} alt="" class="scrollzoomimg w-full hover:cursor cursor-handcursor my-0" />
 						<figcaption>Dobbelteksponering med Smena</figcaption>
 					</a>
 				</div>
-			</div>
+			</section>
 			<div class="max-w-xl mx-auto prose">
 				<p>Pierre tog det endda så vidt at han ikke kun droppede at tage stock-fotos. Han fjernede også alle stock-fotos fra de tjenester, han solgte sine fotos hos. Han gik fra at være en god forretningsdrivende til at blive en vaskeægte boheme-type på rekordtid.</p>
 			</div>
@@ -210,6 +210,16 @@ import "../styles/tobii.min.css";
       )
   	}
 	}) 
+	/* Scroll funktion */
+	scroll(
+    animate(".scrollzoomimg", { 
+        scale: [1, 1.5]    
+    }),
+    { 
+      target: document.querySelector(".scrollzoom"),
+      offset: ["0.75 end", "end end"]
+    }
+    )
 	  </script>
 </MainLayout>
 

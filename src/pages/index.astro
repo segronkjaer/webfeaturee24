@@ -65,15 +65,15 @@ import "../styles/tobii.min.css";
 				</div>
 		</div>
 		</section>
-		<section class="max-w-xl mx-auto mt-32 prose" id="pierresberoemmelse">
-			<h2 class="font-bowlby text-orange-900 text-4xl">Pierres berømmelse</h2>
-			<p>Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
-			<p>Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil. </p>
-			<p>På det tidspunkt var stock-foto industrien i starten af en revolution: De første online stock-foto websites begyndte at komme på markedet, men de store, etablerede spillere på markedet holdt lidt igen. Pierre så det for sig: “Om ganske få år er hele branchen digital, og dem der ikke hopper med på den digitale vogn, lukker.”</p>
-			<p>Så Pierre gav sig selv en udfordring: At blive landets bedst sælgende stock-fotograf. Pierre lejede et gammelt, billigt erhvervslokale i Ishøj industri, fik fløjet billige skuespillere ind fra Polen og Baltikum, og fotograferede 10 timer om dagen.</p>
-			<p>Pierres profeti om stock-foto branchen holdt stik. Pierre var allerede en af landets bedst sælgende stock-fotografer, før han blev færdig med studiet på DMJX. 
-			</p>
+		<h2 class="font-bowlby text-orange-900 text-4xl max-w-xl mx-auto mt-32 prose">Pierres berømmelse</h2>
+		<section class="bg-teal-100 mt-8 h-screen w-100 bg-cover bg-center" style="background-image: url('/over-out-icm.jpeg');">
+			<p class="parallaxelement w-3/4 mx-auto p-10 bg-transparant text-orange-950 text-xl">Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
+			<p class="parallaxelement w-3/4 mx-auto p-10bg-transparant text-orange-950 text-xl">Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil.</p>
+			<p class="parallaxelement w-3/4 mx-auto p-10 bg-transparant text-orange-950 text-xl">På det tidspunkt var stock-foto industrien i starten af en revolution: De første online stock-foto websites begyndte at komme på markedet, men de store, etablerede spillere på markedet holdt lidt igen. Pierre så det for sig: “Om ganske få år er hele branchen digital, og dem der ikke hopper med på den digitale vogn, lukker.”</p>
+			<p class="parallaxelement w-3/4 mx-auto p-10 bg-transparant text-orange-950 text-xl">Så Pierre gav sig selv en udfordring: At blive landets bedst sælgende stock-fotograf. Pierre lejede et gammelt, billigt erhvervslokale i Ishøj industri, fik fløjet billige skuespillere ind fra Polen og Baltikum, og fotograferede 10 timer om dagen.</p>
+			<p class="parallaxelement w-3/4 mx-auto p-10 bg-transparant text-orange-950 text-xl">Pierres profeti om stock-foto branchen holdt stik. Pierre var allerede en af landets bedst sælgende stock-fotografer, før han blev færdig med studiet på DMJX.</p>
 		</section>
+		
 		<section id="enskillevej">
 			<div class="max-w-xl mx-auto mt-32 prose">
 				<h2 class="font-bowlby text-orange-900 text-4xl">En skillevej</h2>
@@ -234,6 +234,10 @@ import "../styles/tobii.min.css";
 		animate( ".mangeelementer3", { x: [-1000, 0 ], y: [-150, 0 ] }, { duration: 3 })
 	}
 })
+/* Parallax med tekstboks */ 
+scroll(animate(".parallaxelement", { y: [50, 500] }), {
+		target: document.querySelector(".parallaxelement"),
+	});
 	  </script>
 </MainLayout>
 

@@ -20,8 +20,8 @@ import "../styles/tobii.min.css";
 		<section class="max-w-xl mx-auto mt-32 prose" id="titel">
 			<h2 class="font-bowlby text-orange-900 text-4xl md:text-8xl text-center">Uperfekt er perfekt</h2>
 		</section>
-		<section class="max-w-4xl mx-auto mt-32" id="herovideo">
-			<video width="1280" height="960" autoplay muted loop>
+		<section class="max-w-4xl mx-auto mt-32" id="videoonhover" x-data>
+			<video width="1280" height="960" muted x-ref="hovervideo" @mouseenter="$refs.hovervideo.play()" @mouseleave="$refs.hovervideo.pause()">
 				<source src="pierre-falcke-video.mp4" type="video/mp4">
 			</video> 
 		</section>
@@ -161,9 +161,12 @@ import "../styles/tobii.min.css";
 		  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 		  const scrollPercentage = scrollTop / scrollHeight;
 		  
-		  // Animering af bredden af progress-baren baseret på scroll-position
+		// Animering af bredden af progress-baren baseret på scroll-position
 		  progressBar.style.transform = `scaleX(${scrollPercentage})`;
-		});
+
+		/*Progress-baren/læseindikatoren */
+		scroll( animate(".progress-bar", { scaleX: [0, 1] }));}
+		);
 		/* Import af Motion One biblioteket */
 		import { animate, stagger, inView, scroll, timeline } from "motion";
 		/* Entrance animation */
